@@ -1,0 +1,1314 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DIXCO PRODUCTIONS | Film & Series Production Company</title>
+  
+  <!-- Font Awesome Icons & Google Fonts -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Montserrat:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    /* CSS RESET & VARIABLES */
+    :root {
+      --bg-dark: #07090e;
+      --bg-card: rgba(14, 20, 32, 0.65);
+      --bg-card-hover: rgba(22, 33, 54, 0.85);
+      --accent-blue: #00d2ff;
+      --accent-deep-blue: #0066ff;
+      --accent-glow: rgba(0, 210, 255, 0.35);
+      --text-main: #f0f4f8;
+      --text-muted: #94a3b8;
+      --border-color: rgba(0, 210, 255, 0.18);
+      --border-bright: rgba(0, 210, 255, 0.5);
+      --glass-blur: blur(16px);
+      --transition-smooth: all 0.35s cubic-bezier(0.25, 1, 0.5, 1);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Montserrat', sans-serif;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background-color: var(--bg-dark);
+      color: var(--text-main);
+      overflow-x: hidden;
+      line-height: 1.6;
+      background-image: 
+        radial-gradient(circle at 15% 15%, rgba(0, 102, 255, 0.12) 0%, transparent 40%),
+        radial-gradient(circle at 85% 65%, rgba(0, 210, 255, 0.1) 0%, transparent 45%);
+      background-attachment: fixed;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    ul {
+      list-style: none;
+    }
+
+    /* CUSTOM DIXCO LOGO COMPONENT */
+    .dixco-logo-container {
+      display: inline-flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      cursor: pointer;
+      user-select: none;
+    }
+
+    .dixco-logo-text {
+      font-family: 'Great Vibes', cursive;
+      color: #ffffff;
+      font-size: 2.3rem;
+      letter-spacing: 1px;
+      line-height: 0.9;
+      text-shadow: 0 0 12px rgba(255, 255, 255, 0.4);
+      transform: rotate(-3deg);
+    }
+
+    .dixco-logo-brush {
+      width: 100%;
+      height: 12px;
+      margin-top: -2px;
+    }
+
+    .dixco-logo-tagline {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 0.52rem;
+      font-weight: 700;
+      letter-spacing: 3.5px;
+      color: var(--accent-blue);
+      text-transform: uppercase;
+      margin-top: 3px;
+    }
+
+    /* HEADER & NAVIGATION */
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 1000;
+      padding: 1rem 4%;
+      transition: var(--transition-smooth);
+      background: rgba(7, 9, 14, 0.7);
+      backdrop-filter: var(--glass-blur);
+      border-bottom: 1px solid rgba(0, 210, 255, 0.1);
+    }
+
+    header.scrolled {
+      padding: 0.6rem 4%;
+      background: rgba(5, 7, 12, 0.95);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.8), 0 1px 0 rgba(0, 210, 255, 0.2);
+    }
+
+    .nav-container {
+      max-width: 1400px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2.2rem;
+      align-items: center;
+    }
+
+    .nav-links a {
+      font-size: 0.85rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      color: var(--text-muted);
+      transition: var(--transition-smooth);
+      position: relative;
+    }
+
+    .nav-links a:hover,
+    .nav-links a.active {
+      color: #fff;
+      text-shadow: 0 0 10px var(--accent-glow);
+    }
+
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      bottom: -6px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: linear-gradient(90deg, var(--accent-blue), var(--accent-deep-blue));
+      transition: var(--transition-smooth);
+      box-shadow: 0 0 8px var(--accent-blue);
+    }
+
+    .nav-links a:hover::after,
+    .nav-links a.active::after {
+      width: 100%;
+    }
+
+    .btn-primary {
+      padding: 0.75rem 1.8rem;
+      background: linear-gradient(135deg, var(--accent-deep-blue), var(--accent-blue));
+      color: #fff;
+      font-weight: 700;
+      font-size: 0.85rem;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: var(--transition-smooth);
+      box-shadow: 0 4px 20px rgba(0, 102, 255, 0.4);
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 28px rgba(0, 210, 255, 0.6);
+      filter: brightness(1.1);
+    }
+
+    .mobile-toggle {
+      display: none;
+      font-size: 1.5rem;
+      color: #fff;
+      cursor: pointer;
+    }
+
+    /* HERO SLIDER SECTION */
+    .hero-slider-section {
+      position: relative;
+      height: 100vh;
+      min-height: 700px;
+      overflow: hidden;
+    }
+
+    .slider-container {
+      position: relative;
+      width: 100%;
+      height: 100%;
+    }
+
+    .slide {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 1s ease-in-out, visibility 1s ease-in-out;
+      background-size: cover;
+      background-position: center;
+      display: flex;
+      align-items: center;
+    }
+
+    .slide.active {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .slide::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        180deg, 
+        rgba(7, 9, 14, 0.6) 0%, 
+        rgba(7, 9, 14, 0.85) 60%, 
+        var(--bg-dark) 100%
+      ),
+      radial-gradient(circle at center, transparent 30%, rgba(0,0,0,0.8) 100%);
+    }
+
+    .slide-content {
+      position: relative;
+      z-index: 10;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 2rem;
+      width: 100%;
+    }
+
+    .slide-tag {
+      display: inline-block;
+      padding: 0.35rem 1rem;
+      background: rgba(0, 210, 255, 0.12);
+      border: 1px solid var(--border-bright);
+      color: var(--accent-blue);
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 0.8rem;
+      font-weight: 700;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      border-radius: 30px;
+      margin-bottom: 1.2rem;
+      backdrop-filter: blur(8px);
+    }
+
+    .slide-title {
+      font-size: 3.8rem;
+      font-weight: 900;
+      text-transform: uppercase;
+      line-height: 1.1;
+      margin-bottom: 1rem;
+      background: linear-gradient(180deg, #ffffff 40%, #a5c0e0 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      max-width: 900px;
+    }
+
+    .slide-desc {
+      font-size: 1.15rem;
+      color: var(--text-muted);
+      max-width: 650px;
+      margin-bottom: 2rem;
+      font-weight: 400;
+    }
+
+    .slider-controls {
+      position: absolute;
+      bottom: 2.5rem;
+      right: 4%;
+      z-index: 20;
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+    }
+
+    .slider-arrow {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      border: 1px solid var(--border-color);
+      background: rgba(14, 20, 32, 0.7);
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: var(--transition-smooth);
+      backdrop-filter: blur(10px);
+    }
+
+    .slider-arrow:hover {
+      background: var(--accent-deep-blue);
+      border-color: var(--accent-blue);
+      box-shadow: 0 0 15px var(--accent-glow);
+    }
+
+    .slider-dots {
+      position: absolute;
+      bottom: 3rem;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 20;
+      display: flex;
+      gap: 0.8rem;
+    }
+
+    .dot {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.3);
+      cursor: pointer;
+      transition: var(--transition-smooth);
+    }
+
+    .dot.active {
+      width: 32px;
+      border-radius: 10px;
+      background: var(--accent-blue);
+      box-shadow: 0 0 10px var(--accent-blue);
+    }
+
+    /* SECTION COMMON STYLES */
+    section {
+      padding: 6rem 4%;
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+
+    .section-header {
+      text-align: center;
+      margin-bottom: 4rem;
+    }
+
+    .section-subtitle {
+      font-family: 'Space Grotesk', sans-serif;
+      color: var(--accent-blue);
+      font-size: 0.85rem;
+      font-weight: 700;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      margin-bottom: 0.5rem;
+      display: block;
+    }
+
+    .section-title {
+      font-size: 2.5rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    /* EXECUTIVE OWNER SECTION */
+    .owner-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: 16px;
+      padding: 3rem;
+      display: grid;
+      grid-template-columns: 320px 1fr;
+      gap: 3rem;
+      align-items: center;
+      backdrop-filter: var(--glass-blur);
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .owner-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 4px;
+      height: 100%;
+      background: linear-gradient(180deg, var(--accent-blue), var(--accent-deep-blue));
+    }
+
+    .owner-img-box {
+      position: relative;
+      border-radius: 12px;
+      overflow: hidden;
+      border: 2px solid var(--border-bright);
+      box-shadow: 0 0 30px var(--accent-glow);
+    }
+
+    .owner-img-placeholder {
+      width: 100%;
+      height: 360px;
+      background: linear-gradient(135deg, #0d1b2a, #1b263b);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      color: var(--accent-blue);
+    }
+
+    .owner-img-placeholder i {
+      font-size: 5rem;
+      margin-bottom: 1rem;
+      opacity: 0.8;
+    }
+
+    .owner-info h3 {
+      font-size: 2.2rem;
+      font-weight: 800;
+      margin-bottom: 0.3rem;
+      color: #fff;
+    }
+
+    .owner-role {
+      font-family: 'Space Grotesk', sans-serif;
+      color: var(--accent-blue);
+      font-size: 1rem;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      margin-bottom: 1.5rem;
+      display: block;
+    }
+
+    .owner-bio {
+      color: var(--text-muted);
+      font-size: 1rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .owner-quote {
+      font-style: italic;
+      padding-left: 1rem;
+      border-left: 3px solid var(--accent-blue);
+      color: #e2e8f0;
+      margin-bottom: 1.8rem;
+    }
+
+    /* SERVICES GRID */
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+    }
+
+    .service-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: 12px;
+      padding: 2.5rem 2rem;
+      transition: var(--transition-smooth);
+      position: relative;
+      backdrop-filter: var(--glass-blur);
+    }
+
+    .service-card:hover {
+      transform: translateY(-8px);
+      border-color: var(--border-bright);
+      background: var(--bg-card-hover);
+      box-shadow: 0 15px 35px rgba(0, 210, 255, 0.15);
+    }
+
+    .service-icon {
+      width: 60px;
+      height: 60px;
+      border-radius: 10px;
+      background: linear-gradient(135deg, rgba(0,210,255,0.15), rgba(0,102,255,0.25));
+      border: 1px solid var(--border-bright);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+      color: var(--accent-blue);
+      margin-bottom: 1.5rem;
+    }
+
+    .service-card h3 {
+      font-size: 1.3rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+    }
+
+    .service-card p {
+      color: var(--text-muted);
+      font-size: 0.95rem;
+    }
+
+    /* BUDGET CALCULATOR SECTION */
+    .calculator-container {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: 16px;
+      padding: 3rem;
+      backdrop-filter: var(--glass-blur);
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+    }
+
+    .calc-controls {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+      margin-bottom: 3rem;
+    }
+
+    .input-group label {
+      display: block;
+      font-size: 0.85rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 0.8rem;
+      color: var(--text-main);
+    }
+
+    .select-style, .range-style {
+      width: 100%;
+      padding: 0.85rem 1rem;
+      background: rgba(7, 9, 14, 0.8);
+      border: 1px solid var(--border-color);
+      border-radius: 6px;
+      color: #fff;
+      font-size: 0.95rem;
+      outline: none;
+      transition: var(--transition-smooth);
+    }
+
+    .select-style:focus {
+      border-color: var(--accent-blue);
+      box-shadow: 0 0 10px var(--accent-glow);
+    }
+
+    .slider-val-display {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 0.5rem;
+      font-size: 0.85rem;
+      color: var(--accent-blue);
+      font-weight: 600;
+    }
+
+    .calc-breakdown-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+    }
+
+    .breakdown-card {
+      background: rgba(7, 9, 14, 0.6);
+      border: 1px solid var(--border-color);
+      border-radius: 8px;
+      padding: 1.5rem;
+      text-align: center;
+    }
+
+    .breakdown-card h4 {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 0.5rem;
+    }
+
+    .breakdown-card .amount {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--accent-blue);
+    }
+
+    /* PROJECTS SHOWCASE CAROUSEL */
+    .projects-carousel-container {
+      position: relative;
+      overflow: hidden;
+      padding: 1rem 0;
+    }
+
+    .projects-track {
+      display: flex;
+      gap: 2rem;
+      transition: transform 0.5s ease-in-out;
+    }
+
+    .project-card {
+      min-width: 360px;
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: 12px;
+      overflow: hidden;
+      transition: var(--transition-smooth);
+    }
+
+    .project-card:hover {
+      transform: translateY(-6px);
+      border-color: var(--accent-blue);
+      box-shadow: 0 12px 30px rgba(0, 210, 255, 0.2);
+    }
+
+    .project-img {
+      height: 220px;
+      background-size: cover;
+      background-position: center;
+      position: relative;
+    }
+
+    .project-badge {
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+      padding: 0.3rem 0.8rem;
+      background: rgba(7, 9, 14, 0.85);
+      border: 1px solid var(--accent-blue);
+      color: var(--accent-blue);
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      border-radius: 4px;
+    }
+
+    .project-body {
+      padding: 1.8rem;
+    }
+
+    .project-body h3 {
+      font-size: 1.3rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+    }
+
+    .project-meta {
+      display: flex;
+      gap: 1rem;
+      color: var(--text-muted);
+      font-size: 0.85rem;
+      margin-bottom: 1rem;
+    }
+
+    .project-meta span i {
+      color: var(--accent-blue);
+      margin-right: 0.3rem;
+    }
+
+    /* PITCH DECK SUBMISSION FORM */
+    .pitch-section {
+      background: linear-gradient(135deg, rgba(14,20,32,0.9), rgba(7,9,14,0.95));
+      border: 1px solid var(--border-color);
+      border-radius: 16px;
+      padding: 4rem 3rem;
+      backdrop-filter: var(--glass-blur);
+    }
+
+    .form-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+    }
+
+    .form-group {
+      margin-bottom: 1.2rem;
+    }
+
+    .form-group.full {
+      grid-column: span 2;
+    }
+
+    .form-control {
+      width: 100%;
+      padding: 0.9rem 1.2rem;
+      background: rgba(7, 9, 14, 0.7);
+      border: 1px solid var(--border-color);
+      border-radius: 6px;
+      color: #fff;
+      font-size: 0.95rem;
+      outline: none;
+      transition: var(--transition-smooth);
+    }
+
+    .form-control:focus {
+      border-color: var(--accent-blue);
+      box-shadow: 0 0 12px var(--accent-glow);
+    }
+
+    textarea.form-control {
+      resize: vertical;
+      min-height: 120px;
+    }
+
+    /* FOOTER */
+    footer {
+      background: rgba(4, 6, 10, 0.95);
+      border-top: 1px solid rgba(0, 210, 255, 0.15);
+      padding: 4rem 4% 2rem 4%;
+      margin-top: 4rem;
+    }
+
+    .footer-container {
+      max-width: 1400px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1.5fr;
+      gap: 3rem;
+      margin-bottom: 3rem;
+    }
+
+    .footer-brand p {
+      color: var(--text-muted);
+      font-size: 0.9rem;
+      margin-top: 1rem;
+      max-width: 320px;
+    }
+
+    .footer-heading {
+      font-size: 1rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      margin-bottom: 1.5rem;
+      color: #fff;
+    }
+
+    .footer-links li {
+      margin-bottom: 0.8rem;
+    }
+
+    .footer-links a {
+      color: var(--text-muted);
+      font-size: 0.9rem;
+      transition: var(--transition-smooth);
+    }
+
+    .footer-links a:hover {
+      color: var(--accent-blue);
+      padding-left: 5px;
+    }
+
+    .footer-bottom {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding-top: 2rem;
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      color: var(--text-muted);
+      font-size: 0.85rem;
+    }
+
+    .footer-owner-tag {
+      color: var(--accent-blue);
+      font-weight: 600;
+    }
+
+    /* RESPONSIVE DESIGN */
+    @media (max-width: 1024px) {
+      .owner-card {
+        grid-template-columns: 1fr;
+      }
+      .owner-img-placeholder {
+        height: 280px;
+      }
+      .calc-breakdown-grid {
+        grid-template-columns: 1fr;
+      }
+      .footer-container {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .nav-links {
+        display: none;
+      }
+      .mobile-toggle {
+        display: block;
+      }
+      .slide-title {
+        font-size: 2.4rem;
+      }
+      .form-grid {
+        grid-template-columns: 1fr;
+      }
+      .form-group.full {
+        grid-column: span 1;
+      }
+      .project-card {
+        min-width: 280px;
+      }
+      .footer-container {
+        grid-template-columns: 1fr;
+      }
+      .footer-bottom {
+        flex-direction: column;
+        gap: 1rem;
+        text-align: center;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HEADER / NAVIGATION -->
+  <header id="main-header">
+    <div class="nav-container">
+      <a href="#home" class="dixco-logo-container">
+        <div class="dixco-logo-text">Dixco</div>
+        <svg class="dixco-logo-brush" viewBox="0 0 200 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M5 12C35 4 85 3 195 8C165 14 105 18 15 15C45 12 125 10 185 13" stroke="#00d2ff" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" opacity="0.9"/>
+        </svg>
+        <div class="dixco-logo-tagline">PRODUCTIONS</div>
+      </a>
+
+      <nav class="nav-links">
+        <a href="#home" class="active">Home</a>
+        <a href="#owner">Leadership</a>
+        <a href="#services">Services</a>
+        <a href="#calculator">Budget Estimator</a>
+        <a href="#projects">Slate</a>
+        <a href="#pitch">Submit Pitch</a>
+      </nav>
+
+      <a href="#pitch" class="btn-primary">
+        <i class="fa-solid fa-paper-plane"></i> Pitch Project
+      </a>
+
+      <div class="mobile-toggle">
+        <i class="fa-solid fa-bars"></i>
+      </div>
+    </div>
+  </header>
+
+  <!-- HERO SLIDER SECTION -->
+  <section id="home" class="hero-slider-section" style="padding: 0; max-width: 100%;">
+    <div class="slider-container">
+      
+      <!-- Slide 1 -->
+      <div class="slide active" style="background-image: url('https://images.unsplash.com/photo-1485846234645-a62644f84728?auto=format&fit=crop&w=1920&q=80');">
+        <div class="slide-content">
+          <span class="slide-tag">Film Packaging &amp; Financing</span>
+          <h1 class="slide-title">Architects of Cinematic Vision</h1>
+          <p class="slide-desc">DIXCO Productions bridges the gap between high-concept storytelling and financial execution for feature films and web series.</p>
+          <a href="#calculator" class="btn-primary"><i class="fa-solid fa-calculator"></i> Estimate Production Budget</a>
+        </div>
+      </div>
+
+      <!-- Slide 2 -->
+      <div class="slide" style="background-image: url('https://images.unsplash.com/photo-1518173946687-a4c8a383392e?auto=format&fit=crop&w=1920&q=80');">
+        <div class="slide-content">
+          <span class="slide-tag">Executive Line Production</span>
+          <h2 class="slide-title">Precision Line Management</h2>
+          <p class="slide-desc">From pre-production strategy to post-production delivery, we deliver world-class film packaging tailored for global platforms.</p>
+          <a href="#projects" class="btn-primary"><i class="fa-solid fa-film"></i> Explore Active Slate</a>
+        </div>
+      </div>
+
+      <!-- Slide 3 -->
+      <div class="slide" style="background-image: url('https://images.unsplash.com/photo-1536440136628-849c177e76a1?auto=format&fit=crop&w=1920&q=80');">
+        <div class="slide-content">
+          <span class="slide-tag">Investor &amp; Producer Alliance</span>
+          <h2 class="slide-title">Connecting Capital with Talent</h2>
+          <p class="slide-desc">We match visionary directors and showrunners with veteran producers and equity partners to build timeless cinema.</p>
+          <a href="#pitch" class="btn-primary"><i class="fa-solid fa-handshake"></i> Connect With Us</a>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Controls -->
+    <div class="slider-controls">
+      <button class="slider-arrow prev-slide"><i class="fa-solid fa-chevron-left"></i></button>
+      <button class="slider-arrow next-slide"><i class="fa-solid fa-chevron-right"></i></button>
+    </div>
+
+    <div class="slider-dots">
+      <div class="dot active" data-index="0"></div>
+      <div class="dot" data-index="1"></div>
+      <div class="dot" data-index="2"></div>
+    </div>
+  </section>
+
+  <!-- EXECUTIVE LEADERSHIP / OWNER SECTION -->
+  <section id="owner">
+    <div class="section-header">
+      <span class="section-subtitle">Executive Vision</span>
+      <h2 class="section-title">Leadership &amp; Founder</h2>
+    </div>
+
+    <div class="owner-card">
+      <div class="owner-img-box">
+        <div class="owner-img-placeholder">
+          <i class="fa-solid fa-user-gear"></i>
+          <span style="font-weight: 700; letter-spacing: 1px;">DIXCO EXECUTIVE</span>
+        </div>
+      </div>
+
+      <div class="owner-info">
+        <h3>Aaqib Ayan</h3>
+        <span class="owner-role">Owner &amp; Founder / Executive Producer</span>
+        <p class="owner-bio">
+          Under the vision of Aaqib Ayan, DIXCO Productions was established to champion independent voices and deliver high-octane theatrical and streaming content. Combining artistic ambition with rigorous financial modeling, Aaqib leads the company's slate development, producer alliances, and executive line management.
+        </p>
+        <p class="owner-quote">
+          "Our goal at DIXCO is simple: empower storytellers with the structural, financial, and physical production resources needed to bring uncompromised visual stories to audiences world-wide."
+        </p>
+        <a href="#pitch" class="btn-primary"><i class="fa-solid fa-envelope"></i> Contact Office of the Founder</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICES SECTION -->
+  <section id="services">
+    <div class="section-header">
+      <span class="section-subtitle">What We Do</span>
+      <h2 class="section-title">Production Ecosystem</h2>
+    </div>
+
+    <div class="services-grid">
+      <div class="service-card">
+        <div class="service-icon"><i class="fa-solid fa-calculator"></i></div>
+        <h3>Film &amp; Series Budgeting</h3>
+        <p>Comprehensive line-item budget structuring, tax-incentive modeling, and scheduling using Movie Magic and industry-standard workflows.</p>
+      </div>
+
+      <div class="service-card">
+        <div class="service-icon"><i class="fa-solid fa-handshake"></i></div>
+        <h3>Producer Matchmaking</h3>
+        <p>Direct matchmaking connecting packaged scripts with venture capital, co-producers, sales agents, and streaming distributors.</p>
+      </div>
+
+      <div class="service-card">
+        <div class="service-icon"><i class="fa-solid fa-clapperboard"></i></div>
+        <h3>Line Production</h3>
+        <p>On-the-ground management, location scouting, crew hiring, gear rental logistics, and principal photography execution.</p>
+      </div>
+
+      <div class="service-card">
+        <div class="service-icon"><i class="fa-solid fa-wand-magic-sparkles"></i></div>
+        <h3>Post-Production Supervision</h3>
+        <p>Full post pipelines including color grading, visual effects (VFX), sound design, scoring, and deliverables master creation.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- BUDGET CALCULATOR SECTION -->
+  <section id="calculator">
+    <div class="section-header">
+      <span class="section-subtitle">Interactive Estimator</span>
+      <h2 class="section-title">Production Budget Modeler</h2>
+    </div>
+
+    <div class="calculator-container">
+      <div class="calc-controls">
+        
+        <!-- Format Selection -->
+        <div class="input-group">
+          <label><i class="fa-solid fa-film"></i> Production Format</label>
+          <select id="calc-format" class="select-style">
+            <option value="feature">Feature Film (Theatrical/Streaming)</option>
+            <option value="series">Web Series / TV Series (6-10 Eps)</option>
+            <option value="indie">Independent Narrative</option>
+          </select>
+        </div>
+
+        <!-- Shoot Days -->
+        <div class="input-group">
+          <label><i class="fa-solid fa-calendar-days"></i> Shoot Duration (Days)</label>
+          <input type="range" id="calc-days" class="range-style" min="5" max="90" value="25">
+          <div class="slider-val-display">
+            <span>Days:</span>
+            <span id="days-val">25 Days</span>
+          </div>
+        </div>
+
+        <!-- Cast Tier -->
+        <div class="input-group">
+          <label><i class="fa-solid fa-star"></i> Talent &amp; Cast Tier</label>
+          <select id="calc-cast" class="select-style">
+            <option value="emerging">Emerging / Local Talent</option>
+            <option value="established">Established Regional / Indie Stars</option>
+            <option value="a-list">A-List Lead Attachments</option>
+          </select>
+        </div>
+
+        <!-- VFX Scale -->
+        <div class="input-group">
+          <label><i class="fa-solid fa-laptop-code"></i> Visual Effects Scale</label>
+          <select id="calc-vfx" class="select-style">
+            <option value="minimal">Minimal / Practical FX</option>
+            <option value="moderate">Moderate CGI &amp; Enhancements</option>
+            <option value="heavy">Heavy VFX / Sci-Fi / Fantasy</option>
+          </select>
+        </div>
+
+      </div>
+
+      <!-- Breakdown Breakdown Grid -->
+      <div class="calc-breakdown-grid">
+        <div class="breakdown-card">
+          <h4>Above-The-Line (ATL)</h4>
+          <div class="amount" id="atl-cost">$180,000</div>
+          <p style="font-size: 0.75rem; color: var(--text-muted); margin-top: 0.3rem;">Story, Director, Producer &amp; Cast</p>
+        </div>
+
+        <div class="breakdown-card">
+          <h4>Below-The-Line (BTL)</h4>
+          <div class="amount" id="btl-cost">$310,000</div>
+          <p style="font-size: 0.75rem; color: var(--text-muted); margin-top: 0.3rem;">Crew, Gear, Locations &amp; Shoot</p>
+        </div>
+
+        <div class="breakdown-card">
+          <h4>Post &amp; Contingency</h4>
+          <div class="amount" id="post-cost">$110,000</div>
+          <p style="font-size: 0.75rem; color: var(--text-muted); margin-top: 0.3rem;">Edit, Grade, Score &amp; Reserve</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROJECTS SLATE CAROUSEL -->
+  <section id="projects">
+    <div class="section-header">
+      <span class="section-subtitle">Portfolio</span>
+      <h2 class="section-title">Active Production Slate</h2>
+    </div>
+
+    <div class="projects-carousel-container">
+      <div class="projects-track" id="projects-track">
+        
+        <!-- Project 1 -->
+        <div class="project-card">
+          <div class="project-img" style="background-image: url('https://images.unsplash.com/photo-1518173946687-a4c8a383392e?auto=format&fit=crop&w=600&q=80');">
+            <span class="project-badge">In Post-Production</span>
+          </div>
+          <div class="project-body">
+            <h3>Chronicles of Neon</h3>
+            <div class="project-meta">
+              <span><i class="fa-solid fa-video"></i> Sci-Fi Thriller</span>
+              <span><i class="fa-solid fa-layer-group"></i> Feature</span>
+            </div>
+            <p style="color: var(--text-muted); font-size: 0.9rem;">High-concept cyberpunk thriller produced in collaboration with international co-financers.</p>
+          </div>
+        </div>
+
+        <!-- Project 2 -->
+        <div class="project-card">
+          <div class="project-img" style="background-image: url('https://images.unsplash.com/photo-1485846234645-a62644f84728?auto=format&fit=crop&w=600&q=80');">
+            <span class="project-badge">Packaging Stage</span>
+          </div>
+          <div class="project-body">
+            <h3>Shadows Over Sindh</h3>
+            <div class="project-meta">
+              <span><i class="fa-solid fa-video"></i> Crime Drama</span>
+              <span><i class="fa-solid fa-tv"></i> 8-Ep Web Series</span>
+            </div>
+            <p style="color: var(--text-muted); font-size: 0.9rem;">Gritty episodic drama centered around political intrigue and underworld operations.</p>
+          </div>
+        </div>
+
+        <!-- Project 3 -->
+        <div class="project-card">
+          <div class="project-img" style="background-image: url('https://images.unsplash.com/photo-1536440136628-849c177e76a1?auto=format&fit=crop&w=600&q=80');">
+            <span class="project-badge">Development</span>
+          </div>
+          <div class="project-body">
+            <h3>Whispers in the Mist</h3>
+            <div class="project-meta">
+              <span><i class="fa-solid fa-video"></i> Mystery / Romance</span>
+              <span><i class="fa-solid fa-film"></i> Feature</span>
+            </div>
+            <p style="color: var(--text-muted); font-size: 0.9rem;">Atmospheric romantic mystery film set across scenic high-altitude landscapes.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- PITCH DECK SUBMISSION FORM -->
+  <section id="pitch">
+    <div class="pitch-section">
+      <div class="section-header" style="margin-bottom: 2.5rem;">
+        <span class="section-subtitle">Filmmaker Portal</span>
+        <h2 class="section-title">Submit Your Pitch Deck</h2>
+      </div>
+
+      <form id="pitch-form" onsubmit="event.preventDefault(); alert('Thank you! Your pitch submission has been received by DIXCO Productions.');">
+        <div class="form-grid">
+          <div class="form-group">
+            <input type="text" class="form-control" placeholder="Full Name *" required>
+          </div>
+          <div class="form-group">
+            <input type="email" class="form-control" placeholder="Email Address *" required>
+          </div>
+          <div class="form-group">
+            <input type="text" class="form-control" placeholder="Project Title *" required>
+          </div>
+          <div class="form-group">
+            <select class="form-control">
+              <option value="">Select Project Type</option>
+              <option value="feature">Feature Film</option>
+              <option value="series">Web Series</option>
+              <option value="short">Short Film</option>
+            </select>
+          </div>
+          <div class="form-group full">
+            <textarea class="form-control" placeholder="Project Logline &amp; Synopsis *" required></textarea>
+          </div>
+          <div class="form-group full">
+            <label style="display: block; font-size: 0.8rem; color: var(--text-muted); margin-bottom: 0.5rem;">
+              <i class="fa-solid fa-cloud-arrow-up"></i> Attach Pitch Deck / Script (PDF)
+            </label>
+            <input type="file" class="form-control" accept=".pdf,.doc,.docx">
+          </div>
+        </div>
+        <div style="text-align: center; margin-top: 1.5rem;">
+          <button type="submit" class="btn-primary"><i class="fa-solid fa-paper-plane"></i> Submit Project Pitch</button>
+        </div>
+      </form>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-container">
+      <div class="footer-brand">
+        <div class="dixco-logo-container">
+          <div class="dixco-logo-text">Dixco</div>
+          <svg class="dixco-logo-brush" viewBox="0 0 200 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M5 12C35 4 85 3 195 8C165 14 105 18 15 15C45 12 125 10 185 13" stroke="#00d2ff" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          <div class="dixco-logo-tagline">PRODUCTIONS</div>
+        </div>
+        <p>Empowering directors and producers through financial engineering, line management, and global film distribution infrastructure.</p>
+      </div>
+
+      <div>
+        <h4 class="footer-heading">Navigation</h4>
+        <ul class="footer-links">
+          <li><a href="#home">Home</a></li>
+          <li><a href="#owner">Leadership</a></li>
+          <li><a href="#services">Services</a></li>
+          <li><a href="#calculator">Budget Estimator</a></li>
+          <li><a href="#projects">Active Slate</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h4 class="footer-heading">Services</h4>
+        <ul class="footer-links">
+          <li><a href="#services">Film Budgeting</a></li>
+          <li><a href="#services">Producer Matchmaking</a></li>
+          <li><a href="#services">Line Production</a></li>
+          <li><a href="#services">Post Supervision</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h4 class="footer-heading">Contact Office</h4>
+        <p style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 0.8rem;">
+          <i class="fa-solid fa-envelope" style="color: var(--accent-blue);"></i> productions@dixcofilms.com
+        </p>
+        <p style="color: var(--text-muted); font-size: 0.9rem;">
+          <i class="fa-solid fa-user-tie" style="color: var(--accent-blue);"></i> Founder: <span class="footer-owner-tag">Aaqib Ayan</span>
+        </p>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p>&copy; 2026 DIXCO PRODUCTIONS. All Rights Reserved.</p>
+      <p>Founded &amp; Directed by <span class="footer-owner-tag">Aaqib Ayan</span></p>
+    </div>
+  </footer>
+
+  <!-- JAVASCRIPT LOGIC -->
+  <script>
+    // 1. HEADER SCROLL EFFECT
+    const header = document.getElementById('main-header');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 50) {
+        header.classList.add('scrolled');
+      } else {
+        header.classList.remove('scrolled');
+      }
+    });
+
+    // 2. HERO SLIDER FUNCTIONALITY
+    const slides = document.querySelectorAll('.slide');
+    const dots = document.querySelectorAll('.dot');
+    const prevBtn = document.querySelector('.prev-slide');
+    const nextBtn = document.querySelector('.next-slide');
+    let currentSlide = 0;
+    let slideInterval;
+
+    function showSlide(index) {
+      slides.forEach(slide => slide.classList.remove('active'));
+      dots.forEach(dot => dot.classList.remove('active'));
+      
+      currentSlide = (index + slides.length) % slides.length;
+      slides[currentSlide].classList.add('active');
+      dots[currentSlide].classList.add('active');
+    }
+
+    function nextSlide() {
+      showSlide(currentSlide + 1);
+    }
+
+    function prevSlide() {
+      showSlide(currentSlide - 1);
+    }
+
+    nextBtn.addEventListener('click', () => {
+      nextSlide();
+      resetTimer();
+    });
+
+    prevBtn.addEventListener('click', () => {
+      prevSlide();
+      resetTimer();
+    });
+
+    dots.forEach(dot => {
+      dot.addEventListener('click', (e) => {
+        const idx = parseInt(e.target.dataset.index);
+        showSlide(idx);
+        resetTimer();
+      });
+    });
+
+    function startTimer() {
+      slideInterval = setInterval(nextSlide, 5000);
+    }
+
+    function resetTimer() {
+      clearInterval(slideInterval);
+      startTimer();
+    }
+
+    startTimer();
+
+    // 3. DYNAMIC BUDGET CALCULATOR
+    const formatSelect = document.getElementById('calc-format');
+    const daysSlider = document.getElementById('calc-days');
+    const daysVal = document.getElementById('days-val');
+    const castSelect = document.getElementById('calc-cast');
+    const vfxSelect = document.getElementById('calc-vfx');
+
+    const atlCostEl = document.getElementById('atl-cost');
+    const btlCostEl = document.getElementById('btl-cost');
+    const postCostEl = document.getElementById('post-cost');
+
+    function calculateBudget() {
+      const days = parseInt(daysSlider.value);
+      daysVal.textContent = days + " Days";
+
+      let baseBtlPerDay = 10000;
+      let baseAtl = 100000;
+      let basePost = 50000;
+
+      // Format multiplier
+      if (formatSelect.value === 'series') {
+        baseBtlPerDay = 14000;
+        baseAtl = 180000;
+      } else if (formatSelect.value === 'indie') {
+        baseBtlPerDay = 5000;
+        baseAtl = 40000;
+      }
+
+      // Cast Multiplier
+      if (castSelect.value === 'established') baseAtl *= 2.2;
+      if (castSelect.value === 'a-list') baseAtl *= 5.5;
+
+      // VFX Multiplier
+      if (vfxSelect.value === 'moderate') basePost += 80000;
+      if (vfxSelect.value === 'heavy') basePost += 250000;
+
+      const btlTotal = baseBtlPerDay * days;
+      const atlTotal = baseAtl;
+      const postTotal = basePost + (btlTotal * 0.15);
+
+      // Format currency
+      atlCostEl.textContent = '$' + Math.round(atlTotal).toLocaleString();
+      btlCostEl.textContent = '$' + Math.round(btlTotal).toLocaleString();
+      postCostEl.textContent = '$' + Math.round(postTotal).toLocaleString();
+    }
+
+    formatSelect.addEventListener('change', calculateBudget);
+    daysSlider.addEventListener('input', calculateBudget);
+    castSelect.addEventListener('change', calculateBudget);
+    vfxSelect.addEventListener('change', calculateBudget);
+
+    // Initial Run
+    calculateBudget();
+  </script>
+</body>
+</html>
